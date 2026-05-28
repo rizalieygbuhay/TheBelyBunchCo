@@ -263,16 +263,7 @@ function seedDemo(){
     const ewtA=+(net*ewt).toFixed(2);
     const pm=db.payment_methods[i%db.payment_methods.length];
     db.transactions.push({
-      fetch("https://script.google.com/macros/s/AKfycbyLWgZaesCuk-nE2lMHRhwGvFHhqh_Vo_QX943o14PPAL7scAtRsm_Cw5IilqSMYAa4Hw/exec", {
-  method: "POST",
-  body: JSON.stringify({
-    date: date,
-    type: type,
-    description: description,
-    amount: amount,
-    category: category
-  })
-});
+     
       id:i+1,date:d.toISOString().split('T')[0],
       invoiceNo:`INV-${String(i+1).padStart(5,'0')}`,
       book:'Cash Disbursement Book',
