@@ -227,7 +227,7 @@ function load(){
   catch(e){}
   if(!db.expense_accounts||db.expense_accounts.length===0)db.expense_accounts=[...DEFAULT_ACCTS];
   if(!db.payment_methods||db.payment_methods.length===0)db.payment_methods=[...DEFAULT_PM];
-  if(db.transactions.length===0)seedDemo();
+  // if(db.transactions.length===0)seedDemo();
 }
 
 function seedDemo(){
