@@ -634,22 +634,7 @@ function saveTx(id){
     status:document.getElementById('tst').value,dueDate:document.getElementById('tdu').value,
     notes:document.getElementById('tno').value
   };
-if(id){
-  db.transactions = db.transactions.map(x => x.id === id ? obj : x);
-}else{
-  db.transactions.push(obj);
-
-  fetch("https://script.google.com/macros/s/AKfycbzb7Gx8vrnphavaPQ8afUsHOkkz5mlcd21at5zzKdRfPpqbM_OnrHu6YxnH8L7XXmTQ_A/exec", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify(obj)
-  })
-  .then(res => res.text())
-  .then(data => console.log("Saved to Google Sheets"))
-  .catch(err => console.error(err));
-}
+  if(id){db.transactions=db.transactions.map(x=>x.id===id?obj:x);}else{db.transactions.push(obj);}
   save();closeM();render();
 }
 function delTx(id){if(confirm('Delete this transaction?')){db.transactions=db.transactions.filter(x=>x.id!==id);save();render();}}
